@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+</head>
+<body>
+	<h2>ログイン画面</h2>
+	<form th:action="@{/admin/login}" method="post" th:object="${RegisterForm}">
+		<div>
+		    <label>メールアドレス</label>
+		    <input type="text" th:value="*{email}" th:field="*{email}" placeholder="メールアドレス" required="required">
+		    <span th:if="${errorMsg != null}" th:text="${errorMsg}"></span>
+		</div>
+		<div>
+		    <label for="password">パスワード</label>
+		    <input type="password" th:value="*{password}" th:field="*{password}" id="password" placeholder="パスワード" required="required">
+		</div>
+		<div>
+			<input type="submit" value="ログイン">
+		</div>
+	</form>
+</body>
+</html>
